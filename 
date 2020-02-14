@@ -1,0 +1,129 @@
+KISMET(1)          BSD General Commands Manual         KISMET(1)
+
+NNAAMMEE
+     kkiissmmeett — Wireless sniffing and monitoring
+
+SSYYNNOOPPSSIISS
+     _k_i_s_m_e_t [server-options] [----] [client-options]
+
+     _k_i_s_m_e_t___s_e_r_v_e_r [--nnqqss] [--tt _t_i_t_l_e] [--ff _c_o_n_f_i_g_-_f_i_l_e]
+     [--cc _c_a_p_t_u_r_e_-_s_o_u_r_c_e] [--CC _e_n_a_b_l_e_-_c_a_p_t_u_r_e_-_s_o_u_r_c_e_s]
+     [--ll _l_o_g_-_t_y_p_e_s] [--dd _d_u_m_p_-_t_y_p_e] [--mm _m_a_x_-_p_a_c_k_e_t_s_-_p_e_r_-_f_i_l_e]
+     [--gg _g_p_s_h_o_s_t_:_p_o_r_t] [--pp _l_i_s_t_e_n_-_p_o_r_t] [--aa _a_l_l_o_w_e_d_-_h_o_s_t_s]
+     [--NN _s_e_r_v_e_r_-_n_a_m_e]
+
+     _k_i_s_m_e_t___c_l_i_e_n_t [--qqrr] [--ff _c_o_n_f_i_g_-_f_i_l_e] [--ss _s_e_r_v_e_r_h_o_s_t_:_p_o_r_t]
+     [--gg _g_u_i_-_t_y_p_e] [--cc _d_i_s_p_l_a_y_-_c_o_l_u_m_n_s]
+
+DDEESSCCRRIIPPTTIIOONN
+     KKiissmmeett is an 802.11 layer2 wireless network detector, snif‐
+     fer, and intrusion detection system.  Kismet will work with
+     any wireless card which supports raw monitoring (rfmon)
+     mode, and can sniff 802.11b, 802.11a, and 802.11g traffic.
+
+     kkiissmmeett identifies networks by passively collecting packets
+     and detecting standard named networks, detecting (and given
+     time, decloaking) hidden networks, and inferring the pres‐
+     ence of nonbeaconing networks via data traffic.
+     kkiissmmeett supports logging to the wtapfile packet format
+     (readable by tcpdump and ethereal) and saves detected net‐
+     work information as plaintext, CSV, and XML.  kkiissmmeett is
+     capable of using any GPS supported by ggppssdd and logs and
+     plots network data.
+
+     kkiissmmeett is divided into three basic programs, kkiissmmeett__sseerrvveerr
+     kkiissmmeett__cclliieenntt and ggppssmmaapp
+
+UUSSAAGGEE
+     kkiissmmeett handles automatically starting kkiissmmeett__sseerrvveerr and
+     kkiissmmeett__cclliieenntt..
+     kkiissmmeett is installed as suid-root by default. It will drop
+     privs to the user specified in kkiissmmeett..ccoonnff immediately
+     after binding and configuring the capture source.
+
+KKIISSMMEETT__SSEERRVVEERR
+     kkiissmmeett__sseerrvveerr captures, dissects, and logs packets and GPS
+     data.  It is capable of running in `headless' mode with no
+     display.  Multiple clients (on multiple computers) can be
+     connected to a single server.
+
+     --II    Set the initial channel for a channel source
+           (source:channel)
+
+     --xx    Forcibly enable the channel hopper
+
+     --XX    Forcibly disable the channel hopper
+
+     --tt    Set the title used for the %t field of the logfile
+           template (Default: Kismet)
+
+     --nn    Disable all logging
+
+     --ff    Use an alternate config file
+
+     --cc    Override capture source lines (type,interface,name).
+           Refer to kismet.conf(5) for more information. Multi‐
+           ple capture source options can be specified for mul‐
+           tiple sources.  All sources provided here are auto‐
+           matically enabled unless an enable list is also sup‐
+           plied.
+
+     --CC    Comma-separated list to override what capture sources
+           are enabled.
+
+     --ll    Override logging types, comma separated (dump, cisco,
+           weak, csv, xml, gps)
+
+     --mm    Override maximum packets logged per file
+
+     --qq    Override sound option and run in quiet mode
+
+     --gg    Override GPS host:port
+
+     --pp    Override port to listen on for clients
+
+     --aa    Override list of client IPs or network/mask blocks
+           (comma separated) allowed to connect
+
+     --ss    Run in silent mode (no console status information)
+
+     --NN    Override server name for this instance of Kismet
+
+     --vv    Print version
+
+     --hh    Help
+
+KKIISSMMEETT__CCLLIIEENNTT
+     kkiissmmeett__cclliieenntt is a ncurses and panels interface which con‐
+     nects to the server and displays detected networks, statis‐
+     tics, network details, etc.
+
+     --ff    Use an alternate config file
+
+     --uu    Use an alternate UI config file
+
+     --qq    Override sound option and run in quiet mode
+
+     --ss    Override server host:port
+
+     --rr    Attempt to automatically reestablish the connection
+           if the server terminates
+
+     --gg    Override UI type (curses, panel)
+
+     --cc    Override list of columns to display (comma separated)
+
+     --vv    Print version
+
+     --hh    Help
+
+GGPPSSMMAAPP
+     ggppssmmaapp reads GPS and Network XML datafiles and plots net‐
+     works on downloaded maps or user-supplied images (such as
+     satellite photos).
+
+SSEEEE AALLSSOO
+     kismet_drone(1), gpsmap(1), kismet.conf(5),
+     kismet_ui.conf(5), kismet_drone.conf(5)
+
+Kismet                   April 03, 2004                   Kismet
