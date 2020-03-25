@@ -7,6 +7,6 @@ kata003	:	given a positive integer n,find out the smallest integer m, such that 
 kata005	:	find the output
 kata006 :	WAP to perform all the operations on matrix
 kata007	:	WAP to find the frequency of letter in a string 
-
+kata011 :	WAP to solve the string "4+6-9*2" this type questions we only solve the "+" "-" and "*" operations 
 
 
